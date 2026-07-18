@@ -57,10 +57,10 @@ echo 1 > /sys/class/gpio/modem_power/value
 
 - [Bandix](https://github.com/timsaya/luci-app-bandix)
 - luci-app-ttyd
-- luci-app-upnp
 - kmod-usb-net-cdc-ether
 - kmod-usb-net-rndis
-- kmod-mtd-rw
+- luci-app-wol
+- luci-app-natmap
 
 ---
 
