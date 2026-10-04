@@ -18,6 +18,7 @@ on:
           - '128M'
           - '128M-Ubootmod'
           - 'jcg-q30'
+          - 'etr631-t'
           - 'all' 
       repo:
         description: '指定源码仓库地址'
@@ -87,6 +88,7 @@ jobs:
             "256M") echo "CONFIG_FILE=config/256m.config" >> $GITHUB_ENV ;;
             "128M") echo "CONFIG_FILE=config/128m.config" >> $GITHUB_ENV ;;
             "jcg-q30") echo "CONFIG_FILE=config/jcg-q30.config" >> $GITHUB_ENV ;;
+            "etr631-t") echo "CONFIG_FILE=config/etr631-t.config" >> $GITHUB_ENV ;;
             "128M-Ubootmod") echo "CONFIG_FILE=config/128muboot.config" >> $GITHUB_ENV ;;
           esac
 
@@ -210,7 +212,7 @@ jobs:
         run: |
           # 1. 确定编译列表
           if [ "${DEVICE_INPUT}" = "all" ]; then
-            DEVICES="256M 128M 128M-Ubootmod"
+            DEVICES="256M 128M 128M-Ubootmod jcg-q30 etr631-t"
           else
             DEVICES="${DEVICE_INPUT}"
           fi
@@ -226,6 +228,8 @@ jobs:
             case "$DEV" in
               "256M") CONFIG="config/256m.config" ;;
               "128M") CONFIG="config/128m.config" ;;
+              "jcg-q30") CONFIG="config/jcg-q30.config" ;;
+              "etr631-t") CONFIG="config/etr631-t.config" ;;
               "128M-Ubootmod") CONFIG="config/128muboot.config" ;;
             esac
             
